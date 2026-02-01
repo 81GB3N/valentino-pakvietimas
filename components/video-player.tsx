@@ -132,7 +132,7 @@ export function VideoPlayer({ videoSrc }: VideoPlayerProps) {
 
   // Demo video URL (Big Buck Bunny - open source)
   // const demoVideo = videoSrc || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-  const demoVideo = videoSrc || "/video.mp4"
+  const demoVideo = videoSrc || "/valentino-pakvietimas/video.mp4"
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4 md:p-8">
