@@ -136,7 +136,7 @@ export function VideoPlayer({ videoSrc }: VideoPlayerProps) {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4 md:p-8">
-      <div className="w-full max-w-5xl">
+      <div className="w-full aspect-[9/16]">
 
 
         {/* Video Container */}
