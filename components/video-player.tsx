@@ -148,7 +148,7 @@ export function VideoPlayer({ videoSrc }: VideoPlayerProps) {
           <video
             ref={videoRef}
             src={demoVideo}
-            className="w-full aspect-[9/16] bg-foreground/5 cursor-pointer"
+            className="w-full h-auto bg-foreground/5 cursor-pointer"
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
             onWaiting={() => setIsBuffering(true)}
