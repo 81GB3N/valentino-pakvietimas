@@ -8,21 +8,37 @@ interface OrigamiHeartProps {
 
 export function OrigamiHeart({ onAnimationComplete }: OrigamiHeartProps) {
   const [animationStage, setAnimationStage] = useState(0)
+  const [hasStarted, setHasStarted] = useState(false)
+
+  const handleInteraction = () => {
+    if (hasStarted) return
+    setHasStarted(true)
+  }
 
   useEffect(() => {
+    if (!hasStarted) {
+      // Initial heart fold-in animation
+      const timer = setTimeout(() => setAnimationStage(1), 500)
+      return () => clearTimeout(timer)
+    }
+
+    // After touch/click, continue the animation
     const timers = [
-      setTimeout(() => setAnimationStage(1), 500),
-      setTimeout(() => setAnimationStage(2), 1500),
-      setTimeout(() => setAnimationStage(3), 2500),
-      setTimeout(() => setAnimationStage(4), 3500),
-      setTimeout(() => onAnimationComplete(), 4500),
+      setTimeout(() => setAnimationStage(2), 200),
+      setTimeout(() => setAnimationStage(3), 700),
+      setTimeout(() => setAnimationStage(4), 1200),
+      setTimeout(() => onAnimationComplete(), 2200),
     ]
 
     return () => timers.forEach(clearTimeout)
-  }, [onAnimationComplete])
+  }, [hasStarted, onAnimationComplete])
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden pointer-events-none">
+    <div 
+      className="fixed inset-0 z-50 overflow-hidden cursor-pointer"
+      onClick={handleInteraction}
+      onTouchStart={handleInteraction}
+    >
       {/* Floating particles background */}
       <div 
         className={`absolute inset-0 overflow-hidden transition-opacity duration-500 ${
