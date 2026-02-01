@@ -136,7 +136,7 @@ export function VideoPlayer({ videoSrc }: VideoPlayerProps) {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4 md:p-8">
-      <div className="w-full aspect-[9/16]">
+      <div className="w-full max-w-md">
 
 
         {/* Video Container */}
@@ -148,7 +148,7 @@ export function VideoPlayer({ videoSrc }: VideoPlayerProps) {
           <video
             ref={videoRef}
             src={demoVideo}
-            className="w-full aspect-video bg-foreground/5 cursor-pointer"
+            className="w-full aspect-[9/16] bg-foreground/5 cursor-pointer"
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
             onWaiting={() => setIsBuffering(true)}
